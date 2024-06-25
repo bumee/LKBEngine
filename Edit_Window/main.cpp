@@ -17,7 +17,7 @@ BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
-int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
+int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램의 인스턴스 핸들을 의미한다.
                      _In_opt_ HINSTANCE hPrevInstance,
                      _In_ LPWSTR    lpCmdLine,
                      _In_ int       nCmdShow)
@@ -148,6 +148,30 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         {
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
+
+            HBRUSH brush = CreateSolidBrush(RGB(255, 0, 255));
+            HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, brush); //새로운 핑크색 선택
+
+            Rectangle(hdc, 100, 100, 200, 200); //핑크색 사각형 그리고
+
+            SelectObject(hdc, oldBrush); //다시 원래 색인 하얀색을 선택
+
+            HPEN pinkpen = CreatePen(PS_SOLID, 2, RGB(255, 0, 255));
+
+            HPEN oldPen = (HPEN)SelectObject(hdc, pinkpen); //기존의 검은 펜 반환
+
+            Ellipse(hdc, 300, 300, 400, 400); //다시 하얀색 원 그리고
+
+            SelectObject(hdc, oldPen); //기존 검은펜 다시 잡아주고
+            DeleteObject(pinkpen); //새로 만든 핑크펜은 메모리에서 지워주기
+
+            DeleteObject(brush); //다 사용한 파란색 브러쉬는 메모리에서 지워주자 !
+
+            //DC란 화면에 출력에 필요한 모든 정보를 가지는 데이터 구조체이며
+            // GDI모듈에 의해 관리된다.
+            // 어떤 폰트를 사용할건가? 어떤 선의 굵기를 정해줄건가? 어떤 색상으로 그려줄 것인가?
+            // 화면 출력에 필요한 모든 경우는 WINAPI에선 DC를 통해서 작업을 진행할 수 있다.
+            // 
             // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
             EndPaint(hWnd, &ps);
         }
