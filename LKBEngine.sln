@@ -5,7 +5,15 @@ VisualStudioVersion = 16.0.34301.259
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Edit_Window", "Edit_Window\Edit_Window.vcxproj", "{303BD54A-4235-4359-962F-EBEF2C1FEBB1}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LKBEngine_Window", "LKBEngine_Window\LKBEngine_Window.vcxproj", "{F580CDF3-D8F7-48C2-B70D-17A582A06220}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LKBEngine_SOURCE", "LKBEngine_SOURCE\LKBEngine_SOURCE.vcxitems", "{FCE64EAB-7C3E-485B-B0C1-B742AC0995B0}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		LKBEngine_SOURCE\LKBEngine_SOURCE.vcxitems*{f580cdf3-d8f7-48c2-b70d-17a582a06220}*SharedItemsImports = 4
+		LKBEngine_SOURCE\LKBEngine_SOURCE.vcxitems*{fce64eab-7c3e-485b-b0c1-b742ac0995b0}*SharedItemsImports = 9
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
@@ -21,6 +29,14 @@ Global
 		{303BD54A-4235-4359-962F-EBEF2C1FEBB1}.Release|x64.Build.0 = Release|x64
 		{303BD54A-4235-4359-962F-EBEF2C1FEBB1}.Release|x86.ActiveCfg = Release|Win32
 		{303BD54A-4235-4359-962F-EBEF2C1FEBB1}.Release|x86.Build.0 = Release|Win32
+		{F580CDF3-D8F7-48C2-B70D-17A582A06220}.Debug|x64.ActiveCfg = Debug|x64
+		{F580CDF3-D8F7-48C2-B70D-17A582A06220}.Debug|x64.Build.0 = Debug|x64
+		{F580CDF3-D8F7-48C2-B70D-17A582A06220}.Debug|x86.ActiveCfg = Debug|Win32
+		{F580CDF3-D8F7-48C2-B70D-17A582A06220}.Debug|x86.Build.0 = Debug|Win32
+		{F580CDF3-D8F7-48C2-B70D-17A582A06220}.Release|x64.ActiveCfg = Release|x64
+		{F580CDF3-D8F7-48C2-B70D-17A582A06220}.Release|x64.Build.0 = Release|x64
+		{F580CDF3-D8F7-48C2-B70D-17A582A06220}.Release|x86.ActiveCfg = Release|Win32
+		{F580CDF3-D8F7-48C2-B70D-17A582A06220}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

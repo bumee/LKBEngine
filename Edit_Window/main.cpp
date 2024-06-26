@@ -3,6 +3,8 @@
 
 #include "framework.h"
 #include "Edit_Window.h"
+#include "..\\LKBEngine_SOURCE\LKBApplication.h"
+//#pragma comment (lib, "..\\Debug\\LKBEngine_Window.lib") //pragme 코드로 연결
 
 #define MAX_LOADSTRING 100
 
@@ -44,15 +46,41 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램의 인스턴스 �
 
     MSG msg;
 
-    // 기본 메시지 루프입니다:
-    while (GetMessage(&msg, nullptr, 0, 0))
-    {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
-        {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
+    // GetMessage(&msg, nullptr, 0, 0)
+    // 프로세스에서 발생한 메세지를 메세지 큐에서 가져오는 함수
+    // 메세지큐에 아무것도 없다면? 아무 메세지도 가져오지 않게 된다.
+    // PeekMessage : 메세지 큐에 메세지 유무에 상관없이 함수가 리턴된다.
+    // 리턴 값이 true인 경우 메세지가 있고, false인 경우는 메세지가 없다라고 가르쳐준다.
+
+    while (true) {
+        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE)) {
+            if (msg.message == WM_QUIT)
+                break;
+            if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg)) {
+                TranslateMessage(&msg);
+                DispatchMessage(&msg);
+            }
+        }
+        else {
+            // 메세지가 없을 경우 여기서 처리한다.
+            // 게임 로직이 들어가면 된다.
         }
     }
+
+    // 기본 메시지 루프입니다:
+    //while (GetMessage(&msg, nullptr, 0, 0))
+    //{
+    //    if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+    //    {
+    //        // 메세지가 들어오는 경우 윈도우 로직을 여기서 실행한다.
+    //        TranslateMessage(&msg);
+    //        DispatchMessage(&msg);
+    //    }
+    //    else {
+    //        // 메세지가 없을 경우 여기서 처리한다.
+    //        // 게임 로직이 들어가면 된다.
+    //    }
+    //}
 
     return (int) msg.wParam;
 }
