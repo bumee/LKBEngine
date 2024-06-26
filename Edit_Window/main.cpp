@@ -7,6 +7,7 @@
 //#pragma comment (lib, "..\\Debug\\LKBEngine_Window.lib") //pragme 코드로 연결
 
 #define MAX_LOADSTRING 100
+lkb::Application application;
 
 // 전역 변수:
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
@@ -30,6 +31,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램의 인스턴스 �
     // TODO: 여기에 코드를 입력합니다.
 
     //깃허브 테스트
+
+    //야호
 
     // 전역 문자열을 초기화합니다.
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
@@ -64,6 +67,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램의 인스턴스 �
         else {
             // 메세지가 없을 경우 여기서 처리한다.
             // 게임 로직이 들어가면 된다.
+            application.Run();
         }
     }
 
@@ -130,6 +134,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
 
+   application.Initialize(hWnd);
+
    if (!hWnd)
    {
       return FALSE;
@@ -177,24 +183,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
 
-            HBRUSH brush = CreateSolidBrush(RGB(255, 0, 255));
-            HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, brush); //새로운 핑크색 선택
-
-            Rectangle(hdc, 100, 100, 200, 200); //핑크색 사각형 그리고
-
-            SelectObject(hdc, oldBrush); //다시 원래 색인 하얀색을 선택
-
-            HPEN pinkpen = CreatePen(PS_SOLID, 2, RGB(255, 0, 255));
-
-            HPEN oldPen = (HPEN)SelectObject(hdc, pinkpen); //기존의 검은 펜 반환
-
-            Ellipse(hdc, 300, 300, 400, 400); //다시 하얀색 원 그리고
-
-            SelectObject(hdc, oldPen); //기존 검은펜 다시 잡아주고
-            DeleteObject(pinkpen); //새로 만든 핑크펜은 메모리에서 지워주기
-
-            DeleteObject(brush); //다 사용한 파란색 브러쉬는 메모리에서 지워주자 !
-
+            
             //DC란 화면에 출력에 필요한 모든 정보를 가지는 데이터 구조체이며
             // GDI모듈에 의해 관리된다.
             // 어떤 폰트를 사용할건가? 어떤 선의 굵기를 정해줄건가? 어떤 색상으로 그려줄 것인가?
