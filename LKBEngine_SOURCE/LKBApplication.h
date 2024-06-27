@@ -1,5 +1,6 @@
 #pragma once
 #include "Commoninclude.h"
+#include "lkbGameObject.h"
 
 namespace lkb
 {
@@ -24,8 +25,8 @@ namespace lkb
 
 		float mSpeed;
 
-		float mX;
-		float mY;
+		// 플레이어
+		GameObject mPlayer;
 	};
 }
 
