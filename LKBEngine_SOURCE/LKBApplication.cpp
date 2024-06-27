@@ -4,7 +4,9 @@ namespace lkb {
 	Application::Application()
 		: mHwnd(nullptr)
 		, mHdc(nullptr)
-		, mSpeed(0.0f) 
+		, mSpeed(0.0f)
+		, mX(0.0f)
+		, mY(0.0f)
 	{
 	
 	}
@@ -31,6 +33,21 @@ namespace lkb {
 		// x좌표가 플러스
 		// 왼쪽 -> x가 마이너스
 		// 위아래는 y가 플러스 마이너스 왔다갔다 하면 됨.
+		if (GetAsyncKeyState(VK_LEFT) & 0x8000) {
+			mX -= 0.01f;
+		}
+
+		if (GetAsyncKeyState(VK_RIGHT) & 0x8000) {
+			mX += 0.01f;
+		}
+
+		if (GetAsyncKeyState(VK_UP) & 0x8000) {
+			mY -= 0.01f;
+		}
+
+		if (GetAsyncKeyState(VK_DOWN) & 0x8000) {
+			mY += 0.01f;
+		}
 	}
 	void Application::LateUpdate()
 	{
@@ -46,7 +63,7 @@ namespace lkb {
 		HPEN oldPen = (HPEN)SelectObject(mHdc, pinkpen); //기존의 검은 펜 반환
 
 
-		Rectangle(mHdc, 100 + mSpeed, 100, 200 + mSpeed, 200); //핑크색 사각형 그리고
+		Rectangle(mHdc, 100 + mX, 100 + mY , 200 + mX, 200 + mY); //핑크색 사각형 그리고
 
 
 		SelectObject(mHdc, oldPen); //기존 검은펜 다시 잡아주고
