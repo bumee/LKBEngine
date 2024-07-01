@@ -10,7 +10,7 @@ namespace lkb
 		Application();
 		~Application();
 
-		void Initialize(HWND hWnd);
+		void Initialize(HWND hWnd, UINT width, UINT height);
 
 		void Run();
 
@@ -23,7 +23,13 @@ namespace lkb
 		HWND mHwnd;
 		HDC mHdc;
 
+		HDC mBackHdc;
+		HBITMAP mBackBitmap;
+
 		float mSpeed;
+
+		UINT mWidth;
+		UINT mHeight;
 
 		// 플레이어
 		GameObject mPlayer;
