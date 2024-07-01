@@ -1,4 +1,5 @@
 #include "lkbGameObject.h"
+#include "lkbInput.h"
 
 lkb::GameObject::GameObject()
 {
@@ -17,19 +18,19 @@ void lkb::GameObject::Update()
 		// 왼쪽 -> x가 마이너스
 		// 위아래는 y가 플러스 마이너스 왔다갔다 하면 됨.
 
-	if (GetAsyncKeyState(VK_LEFT) & 0x8000) {
+	if (Input::GetKey(eKeyCode::A)) {
 		mX -= 0.01f;
 	}
 
-	if (GetAsyncKeyState(VK_RIGHT) & 0x8000) {
+	if (Input::GetKey(eKeyCode::D)) {
 		mX += 0.01f;
 	}
 
-	if (GetAsyncKeyState(VK_UP) & 0x8000) {
+	if (Input::GetKey(eKeyCode::W)) {
 		mY -= 0.01f;
 	}
 
-	if (GetAsyncKeyState(VK_DOWN) & 0x8000) {
+	if (Input::GetKey(eKeyCode::S)) {
 		mY += 0.01f;
 	}
 }

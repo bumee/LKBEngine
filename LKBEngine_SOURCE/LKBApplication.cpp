@@ -1,4 +1,5 @@
 #include "LKBApplication.h"
+#include "lkbInput.h"
 
 namespace lkb {
 	Application::Application()
@@ -17,6 +18,7 @@ namespace lkb {
 		mHwnd = hwnd;
 		mHdc = GetDC(hwnd);
 		mPlayer.setPosition(0, 0);
+		Input::Initialize();
 	}
 	void Application::Run()
 	{
@@ -26,6 +28,8 @@ namespace lkb {
 	}
 	void Application::Update()
 	{
+		Input::Update();
+
 		mPlayer.Update();
 
 	}
