@@ -61,7 +61,7 @@ void lkb::GameObject::Render(HDC hdc)
 	DeleteObject(pinkpen); //새로 만든 핑크펜은 메모리에서 지워주기
 }
 
-void lkb::GameObject::LateUpdate()
+void lkb::GameObject::LaterUpdate()
 {
 
 }

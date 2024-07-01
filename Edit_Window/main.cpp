@@ -4,6 +4,7 @@
 #include "framework.h"
 #include "Edit_Window.h"
 #include "..\\LKBEngine_SOURCE\LKBApplication.h"
+#include "..\\LKBEngine_Window\lkbLoadScenes.h"
 //#pragma comment (lib, "..\\Debug\\LKBEngine_Window.lib") //pragme 코드로 연결
 
 #define MAX_LOADSTRING 100
@@ -146,6 +147,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   //load Scenes
+   lkb::LoadScenes();
 
    return TRUE;
 }

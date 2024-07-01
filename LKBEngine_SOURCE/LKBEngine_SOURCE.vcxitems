@@ -16,14 +16,20 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Commoninclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LKBApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lkbGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lkbInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbScene.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lkbTime.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LKBApplication.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lkbGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lkbInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lkbTime.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbScene.cpp" />
   </ItemGroup>
 </Project>

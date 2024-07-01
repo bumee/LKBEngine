@@ -10,7 +10,7 @@ namespace lkb {
 
 		void Update();
 		void Render(HDC hdc);
-		void LateUpdate();
+		void LaterUpdate();
 
 		void setPosition(float x, float y);
 		float getPositionX();

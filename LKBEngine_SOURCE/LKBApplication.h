@@ -12,12 +12,20 @@ namespace lkb
 
 		void Initialize(HWND hWnd, UINT width, UINT height);
 
+
 		void Run();
 
 		void Update();
 		void LateUpdate();
 
 		void Render();
+
+	private:
+		void adjustWindowRect(HWND hWnd, UINT width, UINT height);
+		void createBuffer(UINT width, UINT height);
+		void clearRenderTarget();
+		void copyRenderTarget(HDC source, HDC dest);
+		void initializeEtc();
 
 	private:
 		HWND mHwnd;
@@ -30,9 +38,7 @@ namespace lkb
 
 		UINT mWidth;
 		UINT mHeight;
-
-		// 플레이어
-		GameObject mPlayer;
+		
 	};
 }
 

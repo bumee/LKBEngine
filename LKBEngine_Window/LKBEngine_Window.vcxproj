@@ -18,6 +18,13 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lkbLoadScenes.h" />
+    <ClInclude Include="lkbPlayScene.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="lkbPlayScene.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
