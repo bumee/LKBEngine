@@ -1,9 +1,11 @@
 #include "lkbGameObject.h"
 #include "lkbInput.h"
+#include "lkbTime.h"
 
 lkb::GameObject::GameObject()
 {
-
+	mX = 0.0f;
+	mY = 0.0f;
 }
 
 lkb::GameObject::~GameObject()
@@ -11,29 +13,32 @@ lkb::GameObject::~GameObject()
 
 }
 
+
 void lkb::GameObject::Update()
 {
+
 	// 내가 오른쪽 키를 입력받았다면
 		// x좌표가 플러스
 		// 왼쪽 -> x가 마이너스
 		// 위아래는 y가 플러스 마이너스 왔다갔다 하면 됨.
-
+	const int speed = 100.0f;
 	if (Input::GetKey(eKeyCode::A)) {
-		mX -= 0.01f;
+		mX -= speed * Time::getDeltaTime();
 	}
 
 	if (Input::GetKey(eKeyCode::D)) {
-		mX += 0.01f;
+		mX += speed * Time::getDeltaTime();
 	}
 
 	if (Input::GetKey(eKeyCode::W)) {
-		mY -= 0.01f;
+		mY -= speed * Time::getDeltaTime();
 	}
 
 	if (Input::GetKey(eKeyCode::S)) {
-		mY += 0.01f;
+		mY += speed * Time::getDeltaTime();
 	}
 }
+
 
 void lkb::GameObject::Render(HDC hdc)
 {

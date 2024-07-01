@@ -1,5 +1,6 @@
 #include "LKBApplication.h"
 #include "lkbInput.h"
+#include "lkbTime.h"
 
 namespace lkb {
 	Application::Application()
@@ -18,7 +19,10 @@ namespace lkb {
 		mHwnd = hwnd;
 		mHdc = GetDC(hwnd);
 		mPlayer.setPosition(0, 0);
+
 		Input::Initialize();
+
+		Time::Initialize();
 	}
 	void Application::Run()
 	{
@@ -32,6 +36,8 @@ namespace lkb {
 
 		mPlayer.Update();
 
+		Time::Update();
+
 	}
 	void Application::LateUpdate()
 	{
@@ -39,6 +45,7 @@ namespace lkb {
 	}
 	void Application::Render()
 	{
+		Time::Render(mHdc);
 		mPlayer.Render(mHdc);
 	}
 }
