@@ -13,12 +13,12 @@ namespace lkb {
 		VK_LEFT, VK_RIGHT, VK_DOWN, VK_UP
 	};
 
-	void lkb::Input::Initialize()
+	void Input::Initialize()
 	{
 		createKeys();
 	}
 
-	void lkb::Input::Update()
+	void Input::Update()
 	{
 		updateKeys();
 	}

@@ -10,8 +10,10 @@
       <Filter>Scenes</Filter>
     </ClInclude>
     <ClInclude Include="lkbPlayScene.h" />
+    <ClInclude Include="lkbPlayer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="lkbPlayScene.cpp" />
+    <ClCompile Include="lkbPlayer.cpp" />
   </ItemGroup>
 </Project>

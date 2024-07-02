@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)LKBApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbTime.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbGameObject.cpp">
+      <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbSceneManager.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbEntity.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbSpriteRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbTransform.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)LKBApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbTime.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbGameObject.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Commoninclude.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbSceneManager.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbEntity.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbSpriteRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbTransform.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>{f6361599-e5eb-433b-aec5-89f279468418}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject">
+      <UniqueIdentifier>{4689c046-481e-4ceb-9ab5-e479f9afaafd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{b1327fb6-c844-43c8-89f1-a4db2ed875e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components">
+      <UniqueIdentifier>{58144ac2-8beb-4162-ac9b-faab6f33b074}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -191,7 +191,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             HDC hdc = BeginPaint(hWnd, &ps);
 
             
-            //DC란 화면에 출력에 필요한 모든 정보를 가지는 데이터 구조체이며
+            // DC란 화면에 출력에 필요한 모든 정보를 가지는 데이터 구조체이며
             // GDI모듈에 의해 관리된다.
             // 어떤 폰트를 사용할건가? 어떤 선의 굵기를 정해줄건가? 어떤 색상으로 그려줄 것인가?
             // 화면 출력에 필요한 모든 경우는 WINAPI에선 DC를 통해서 작업을 진행할 수 있다.

@@ -26,7 +26,7 @@ namespace lkb
 	{
 		//범위 기반 for 문
 		for (GameObject* gameObj : mGameObjects) {
-			gameObj->LaterUpdate();
+			gameObj->LateUpdate();
 		}
 	}
 	void Scene::Render(HDC mHdc)
@@ -36,7 +36,7 @@ namespace lkb
 			gameObj->Render(mHdc);
 		}
 	}
-	void Scene::AddGameObjects(GameObject* gameObject)
+	void Scene::AddGameObject(GameObject* gameObject)
 	{
 		mGameObjects.push_back(gameObject);
 	}

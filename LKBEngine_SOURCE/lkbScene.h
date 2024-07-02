@@ -14,7 +14,7 @@ namespace lkb {
 		virtual void LateUpdate();
 		virtual void Render(HDC mHdc);
 
-		void AddGameObjects(GameObject* gameObject);
+		void AddGameObject(GameObject* gameObject);
 
 	private:
 		std::vector<GameObject*> mGameObjects;
