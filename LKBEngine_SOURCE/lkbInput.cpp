@@ -1,5 +1,4 @@
 #include "lkbInput.h"
-#include <algorithm>
 
 namespace lkb {
 

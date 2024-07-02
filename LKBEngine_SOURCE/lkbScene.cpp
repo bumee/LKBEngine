@@ -1,10 +1,16 @@
 #include "lkbScene.h"
+#include "Commoninclude.h"
+
 namespace lkb 
 {
 	Scene::Scene()
-		:mGameObjects{}
+		: mLayers{}
 	{
-
+		mLayers.resize((UINT)eLayerType::Max);
+		for (size_t i = 0; i < (UINT)eLayerType::Max; i++)
+		{
+			mLayers[i] = new Layer();
+		}
 	}
 
 	Scene::~Scene()
@@ -13,31 +19,47 @@ namespace lkb
 	}
 	void Scene::Initialize()
 	{
-
+		for (Layer* layer : mLayers) {
+			if (layer == nullptr)
+				continue;
+			layer->Initialize();
+		}
 	}
 	void Scene::Update()
 	{
 		//범위 기반 for 문
-		for (GameObject* gameObj : mGameObjects) {
-			gameObj->Update();
+		for (Layer* layer : mLayers) {
+			if (layer == nullptr)
+				continue;
+			layer->Update();
 		}
 	}
 	void Scene::LateUpdate()
 	{
 		//범위 기반 for 문
-		for (GameObject* gameObj : mGameObjects) {
-			gameObj->LateUpdate();
+		for (Layer* layer : mLayers) {
+			if (layer == nullptr)
+				continue;
+			layer->LateUpdate();
 		}
 	}
 	void Scene::Render(HDC mHdc)
 	{
 		//범위 기반 for 문
-		for (GameObject* gameObj : mGameObjects) {
-			gameObj->Render(mHdc);
+		for (Layer* layer : mLayers) {
+			if (layer == nullptr)
+				continue;
+			layer->Render(mHdc);
 		}
 	}
-	void Scene::AddGameObject(GameObject* gameObject)
+	void Scene::OnEnter()
 	{
-		mGameObjects.push_back(gameObject);
+	}
+	void Scene::OnExit()
+	{
+	}
+	void Scene::AddGameObject(GameObject* gameObject, eLayerType type)
+	{
+		mLayers[(UINT)type]->AddGameObject(gameObject);
 	}
 }

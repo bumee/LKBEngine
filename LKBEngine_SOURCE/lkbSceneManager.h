@@ -18,6 +18,10 @@ namespace lkb {
 		}
 
 		static Scene* LoadScene(const std::wstring& name) {
+
+			if(mActiveScene!=nullptr)
+				mActiveScene->OnExit();
+
 			std::map<std::wstring, Scene*>::iterator iter = 
 				mScene.find(name);
 
@@ -26,6 +30,8 @@ namespace lkb {
 			}
 			else {
 				mActiveScene = iter->second;
+				mActiveScene->OnEnter();
+
 				return iter->second;
 			}
 		}
@@ -33,7 +39,7 @@ namespace lkb {
 		static void Initialize();
 
 		static void Update();
-		static void LaterUpdate();
+		static void LateUpdate();
 
 		static void Render(HDC mHdc);
 

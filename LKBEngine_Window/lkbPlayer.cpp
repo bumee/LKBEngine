@@ -1,4 +1,7 @@
 #include "lkbPlayer.h"
+#include "lkbInput.h"
+#include "lkbTransform.h"
+#include "lkbTime.h"
 
 namespace lkb {
 	void Player::Initialize()
@@ -12,6 +15,13 @@ namespace lkb {
 	void Player::LateUpdate()
 	{
 		GameObject::LateUpdate();
+
+		if (Input::GetKey(eKeyCode::Right)) {
+			Transform* tr = GetComponent<Transform>();
+			Vector2 pos = tr->GetPosition();
+			pos.x += 100.0f * Time::getDeltaTime();
+			tr->SetPos(pos);
+		}
 	}
 	void Player::Render(HDC hdc)
 	{

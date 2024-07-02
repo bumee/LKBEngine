@@ -4,16 +4,33 @@
     <Filter Include="Scenes">
       <UniqueIdentifier>{28f99782-bedf-4689-abc0-d79babae7c9a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Conetents">
+      <UniqueIdentifier>{e0020264-d1ca-457b-a574-bc01cca0e83e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lkbLoadScenes.h">
       <Filter>Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="lkbPlayScene.h" />
-    <ClInclude Include="lkbPlayer.h" />
+    <ClInclude Include="lkbPlayScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="lkbPlayer.h">
+      <Filter>Conetents</Filter>
+    </ClInclude>
+    <ClInclude Include="lkbTitleScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="lkbPlayScene.cpp" />
-    <ClCompile Include="lkbPlayer.cpp" />
+    <ClCompile Include="lkbPlayScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="lkbPlayer.cpp">
+      <Filter>Conetents</Filter>
+    </ClCompile>
+    <ClCompile Include="lkbTitleScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

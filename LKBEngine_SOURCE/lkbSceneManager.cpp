@@ -15,7 +15,7 @@ namespace lkb {
 		mActiveScene->Update();
 	}
 
-	void SceneManager::LaterUpdate()
+	void SceneManager::LateUpdate()
 	{
 		mActiveScene->LateUpdate();
 	}

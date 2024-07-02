@@ -22,10 +22,12 @@
     <ClInclude Include="lkbLoadScenes.h" />
     <ClInclude Include="lkbPlayer.h" />
     <ClInclude Include="lkbPlayScene.h" />
+    <ClInclude Include="lkbTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="lkbPlayer.cpp" />
     <ClCompile Include="lkbPlayScene.cpp" />
+    <ClCompile Include="lkbTitleScene.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

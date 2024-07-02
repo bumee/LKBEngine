@@ -99,6 +99,6 @@ namespace lkb {
 	}
 	void Application::LateUpdate()
 	{
-
+		SceneManager::LateUpdate();
 	}
 }

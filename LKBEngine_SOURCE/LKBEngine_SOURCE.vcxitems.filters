@@ -2,8 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)LKBApplication.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)lkbInput.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)lkbTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lkbGameObject.cpp">
       <Filter>GameObject</Filter>
     </ClCompile>
@@ -19,13 +17,27 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)lkbComponent.cpp">
       <Filter>Components</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)lkbSpriteRenderer.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)lkbTransform.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbMath.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbInput.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbTime.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbTransform.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbSpriteRenderer.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbLayer.cpp">
+      <Filter>Layer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)LKBApplication.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)lkbInput.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)lkbTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lkbGameObject.h">
       <Filter>GameObject</Filter>
     </ClInclude>
@@ -44,8 +56,27 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)lkbComponent.h">
       <Filter>Components</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)lkbSpriteRenderer.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)lkbTransform.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbMath.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbInput.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbTime.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbTransform.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbSpriteRenderer.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbLayer.h">
+      <Filter>Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbEnums.h">
+      <Filter>Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -60,5 +91,19 @@
     <Filter Include="Components">
       <UniqueIdentifier>{58144ac2-8beb-4162-ac9b-faab6f33b074}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{3f312980-a84f-445a-b3bf-18b910e35196}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Helpers">
+      <UniqueIdentifier>{148cfdf3-76d5-46e2-87c0-5ba928116896}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Layer">
+      <UniqueIdentifier>{fea46d92-9790-461d-a1c6-03865ff32a22}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="$(MSBuildThisFileDirectory)..\..\..\..\Downloads\CloudOcean.png">
+      <Filter>Resources</Filter>
+    </Image>
   </ItemGroup>
 </Project>
