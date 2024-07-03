@@ -7,6 +7,7 @@ namespace lkb {
 
 	GameObject::GameObject()
 	{
+		mComponents.resize((UINT)enums::eComponentType::End);
 		initializeTransform();
 	}
 
@@ -23,6 +24,8 @@ namespace lkb {
 	void GameObject::Initialize()
 	{
 		for (Component* comp : mComponents) {
+			if (comp == nullptr)
+				continue;
 			comp->Initialize();
 		}
 	}
@@ -52,6 +55,8 @@ namespace lkb {
 		}*/
 
 		for (Component* comp : mComponents) {
+			if (comp == nullptr)
+				continue;
 			comp->Update();
 		}
 	}
@@ -61,6 +66,8 @@ namespace lkb {
 	{
 
 		for (Component* comp : mComponents) {
+			if (comp == nullptr)
+				continue;
 			comp->Render(hdc);
 		}
 	}
@@ -69,6 +76,8 @@ namespace lkb {
 	{
 
 		for (Component* comp : mComponents) {
+			if (comp == nullptr)
+				continue;
 			comp->LateUpdate();
 		}
 	}

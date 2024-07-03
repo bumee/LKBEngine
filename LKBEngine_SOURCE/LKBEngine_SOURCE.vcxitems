@@ -17,6 +17,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\Edit_Window\Resource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Commoninclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LKBApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lkbComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lkbEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lkbEnums.h" />
@@ -25,16 +26,19 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)lkbLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lkbMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lkbObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lkbResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lkbResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lkbScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lkbSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbScript.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lkbSpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lkbTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lkbTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lkbTransform.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbCamera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lkbComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lkbEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LKBApplication.cpp" />
@@ -42,9 +46,11 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)lkbInput.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lkbLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lkbMath.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lkbResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lkbResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lkbSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbScript.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lkbSpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lkbTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lkbTime.cpp" />

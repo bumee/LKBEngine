@@ -9,6 +9,9 @@
 #include "lkbObject.h"
 #include "lkbTexture.h"
 #include "lkbResources.h"
+#include "lkbPlayerScript.h"
+#include "lkbCamera.h"
+#include "lkbRenderer.h"
 
 namespace lkb {
 	PlayScene::PlayScene()
@@ -19,12 +22,21 @@ namespace lkb {
 	{
 	}
 	void PlayScene::Initialize()
+
 	{
+
+		//메인 카메라
+		GameObject* camera = Object::Instantinate<GameObject>(enums::eLayerType::None);
+		Camera* cameraComp = camera->AddComponent<Camera>();
+		renderer::mainCamera = cameraComp;
+		camera->AddComponent<PlayerScript>();
+
 		//게임 오브젝트 만들기 전에 리소드들을 전부 로드해주면 좋다!
 
 		bg = Object::Instantinate<Player>
-			(enums::eLayerType::BackGround, Vector2(100.0f, 100.0f));
+			(enums::eLayerType::BackGround);
 		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
+		
 
 		graphics::Texture* tx = Resources::Find<graphics::Texture>(L"BG");
 

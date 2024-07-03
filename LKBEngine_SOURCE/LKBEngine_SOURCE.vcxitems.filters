@@ -25,12 +25,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)lkbTime.cpp">
       <Filter>Helpers</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)lkbTransform.cpp">
-      <Filter>Components</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)lkbSpriteRenderer.cpp">
-      <Filter>Components</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)lkbLayer.cpp">
       <Filter>Layer</Filter>
     </ClCompile>
@@ -45,6 +39,21 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)lkbResources.cpp">
       <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbScript.cpp">
+      <Filter>Components\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbTransform.cpp">
+      <Filter>Components\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbSpriteRenderer.cpp">
+      <Filter>Components\SpriteRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbCamera.cpp">
+      <Filter>Components\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbRenderer.cpp">
+      <Filter>Renderer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -75,12 +84,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)lkbTime.h">
       <Filter>Helpers</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)lkbTransform.h">
-      <Filter>Components</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)lkbSpriteRenderer.h">
-      <Filter>Components</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)lkbLayer.h">
       <Filter>Layer</Filter>
     </ClInclude>
@@ -102,6 +105,21 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)lkbResources.h">
       <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbScript.h">
+      <Filter>Components\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbTransform.h">
+      <Filter>Components\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbSpriteRenderer.h">
+      <Filter>Components\SpriteRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbCamera.h">
+      <Filter>Components\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbRenderer.h">
+      <Filter>Renderer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -131,6 +149,21 @@
     </Filter>
     <Filter Include="High Level Interface">
       <UniqueIdentifier>{a918a543-140a-4b38-8f16-6b7976ff0a31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Script">
+      <UniqueIdentifier>{836ddd20-fa9b-472e-ba37-18bebc8755e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Transform">
+      <UniqueIdentifier>{e58f2b9f-0400-4a2b-a0ad-07b728e0a96a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\SpriteRenderer">
+      <UniqueIdentifier>{306af12a-24a0-4b18-b3ac-ac98c5ffc5fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Camera">
+      <UniqueIdentifier>{63ffd7bb-de63-44c8-a5fd-c026df562295}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer">
+      <UniqueIdentifier>{89470c5c-9013-4e99-8a2c-e2c6a3811641}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
