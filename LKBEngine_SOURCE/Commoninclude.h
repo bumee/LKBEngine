@@ -17,3 +17,4 @@
 #pragma comment(lib, "gdiplus.lib")
 
 #include "lkbEnums.h"
+#include <assert.h>

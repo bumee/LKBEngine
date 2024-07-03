@@ -20,6 +20,8 @@ namespace lkb
 
 		void Render();
 
+		HDC GetHdc() { return mHdc; }
+
 	private:
 		void adjustWindowRect(HWND hWnd, UINT width, UINT height);
 		void createBuffer(UINT width, UINT height);

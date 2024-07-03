@@ -5,6 +5,7 @@
 #include "Edit_Window.h"
 #include "..\\LKBEngine_SOURCE\LKBApplication.h"
 #include "..\\LKBEngine_Window\lkbLoadScenes.h"
+#include "..\\LKBEngine_Window\lkbLoadResources.h"
 //#pragma comment (lib, "..\\Debug\\LKBEngine_Window.lib") //pragme 코드로 연결
 
 #define MAX_LOADSTRING 100
@@ -156,6 +157,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
    //load Scenes
+   lkb::LoadResources();
    lkb::LoadScenes();
 
    return TRUE;

@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)LKBApplication.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lkbGameObject.cpp">
       <Filter>GameObject</Filter>
     </ClCompile>
@@ -35,9 +34,20 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)lkbLayer.cpp">
       <Filter>Layer</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbTexture.cpp">
+      <Filter>Resources\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbResource.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)LKBApplication.cpp">
+      <Filter>High Level Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbResources.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)LKBApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lkbGameObject.h">
       <Filter>GameObject</Filter>
     </ClInclude>
@@ -77,6 +87,22 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)lkbEnums.h">
       <Filter>Common</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbObject.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\Edit_Window\Resource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbTexture.h">
+      <Filter>Resources\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbResource.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)LKBApplication.h">
+      <Filter>High Level Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbResources.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -99,6 +125,12 @@
     </Filter>
     <Filter Include="Layer">
       <UniqueIdentifier>{fea46d92-9790-461d-a1c6-03865ff32a22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Texture">
+      <UniqueIdentifier>{dfa51d4c-1d25-4500-a976-f2f8d7ffa229}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="High Level Interface">
+      <UniqueIdentifier>{a918a543-140a-4b38-8f16-6b7976ff0a31}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

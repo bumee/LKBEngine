@@ -39,7 +39,8 @@ namespace lkb {
 			}
 			return component;
 		}
-
+	private:
+		void initializeTransform();
 	private:
 		//GameObject의 좌표
 		/*float mX;

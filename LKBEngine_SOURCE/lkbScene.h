@@ -18,7 +18,11 @@ namespace lkb {
 		virtual void OnEnter(); // 씬에 입장할 때 불러주는 함수
 		virtual void OnExit(); // 씬에서 퇴장할 때 불러주는 함수
 
-		void AddGameObject(GameObject* gameObject, eLayerType type);
+		void AddGameObject(GameObject* gameObject, enums::eLayerType type);
+		Layer* GetLayer(enums::eLayerType type) { return mLayers[(UINT)type]; }
+
+	private:
+		void createLayers();
 
 	private:
 		std::vector<Layer*> mLayers;

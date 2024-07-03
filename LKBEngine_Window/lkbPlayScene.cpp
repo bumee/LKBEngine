@@ -6,6 +6,9 @@
 #include "lkbInput.h"
 #include "lkbTitleScene.h"
 #include "lkbSceneManager.h"
+#include "lkbObject.h"
+#include "lkbTexture.h"
+#include "lkbResources.h"
 
 namespace lkb {
 	PlayScene::PlayScene()
@@ -17,18 +20,17 @@ namespace lkb {
 	}
 	void PlayScene::Initialize()
 	{
-		bg = new Player();
-		Transform* tr = bg->AddComponent<Transform>();
-		tr->SetPos(Vector2(2, 0));
+		//게임 오브젝트 만들기 전에 리소드들을 전부 로드해주면 좋다!
 
-		tr->SetName(L"TR");
-
+		bg = Object::Instantinate<Player>
+			(enums::eLayerType::BackGround, Vector2(100.0f, 100.0f));
 		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
-		sr->SetName(L"SR");
-		sr->ImageLoad(L"C:\\Users\\hass-guest\\source\\repos\\LKBEngine\\LKBEngine_SOURCE\\CloudOcean.png");
 
-		AddGameObject(bg, eLayerType::BackGround);
-		
+		graphics::Texture* tx = Resources::Find<graphics::Texture>(L"BG");
+
+		sr->SetTexture(tx);
+
+		Scene::Initialize();
 	}
 	void PlayScene::Update()
 	{
@@ -53,7 +55,7 @@ namespace lkb {
 	}
 	void PlayScene::OnExit()
 	{
-		Transform* tr = bg->GetComponent<Transform>();
-		tr->SetPos(Vector2(0, 0));
+		/*Transform* tr = bg->GetComponent<Transform>();
+		tr->SetPosition(Vector2(0, 0));*/
 	}
 }

@@ -1,17 +1,22 @@
 #include "lkbGameObject.h"
 #include "lkbInput.h"
 #include "lkbTime.h"
+#include "lkbTransform.h"
 
 namespace lkb {
 
 	GameObject::GameObject()
 	{
-
+		initializeTransform();
 	}
 
 	GameObject::~GameObject()
 	{
-
+		for (Component* comp : mComponents)
+		{
+			delete comp;
+			comp = nullptr;
+		}
 	}
 
 
@@ -66,6 +71,10 @@ namespace lkb {
 		for (Component* comp : mComponents) {
 			comp->LateUpdate();
 		}
+	}
+	void GameObject::initializeTransform()
+	{
+		AddComponent<Transform>();
 	}
 }
 

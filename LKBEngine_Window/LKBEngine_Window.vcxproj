@@ -23,6 +23,7 @@
     <ClInclude Include="lkbPlayer.h" />
     <ClInclude Include="lkbPlayScene.h" />
     <ClInclude Include="lkbTitleScene.h" />
+    <ClInclude Include="lkbLoadResources.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="lkbPlayer.cpp" />

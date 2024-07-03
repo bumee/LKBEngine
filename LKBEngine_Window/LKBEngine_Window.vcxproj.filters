@@ -21,6 +21,7 @@
     <ClInclude Include="lkbTitleScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="lkbLoadResources.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="lkbPlayScene.cpp">

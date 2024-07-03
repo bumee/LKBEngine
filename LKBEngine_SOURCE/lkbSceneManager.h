@@ -10,6 +10,7 @@ namespace lkb {
 		static Scene* CreateScene(const std::wstring& name) {
 			T* scene = new T();
 			scene->SetName(name);
+			mActiveScene = scene;
 			scene->Initialize();
 
 			mScene.insert(std::make_pair(name, scene));
@@ -17,24 +18,9 @@ namespace lkb {
 			return scene;
 		}
 
-		static Scene* LoadScene(const std::wstring& name) {
+		static Scene* LoadScene(const std::wstring& name);
 
-			if(mActiveScene!=nullptr)
-				mActiveScene->OnExit();
-
-			std::map<std::wstring, Scene*>::iterator iter = 
-				mScene.find(name);
-
-			if (iter == mScene.end()) {
-				return nullptr;
-			}
-			else {
-				mActiveScene = iter->second;
-				mActiveScene->OnEnter();
-
-				return iter->second;
-			}
-		}
+		static Scene* getActiveScene() { return mActiveScene; }
 
 		static void Initialize();
 
