@@ -34,11 +34,11 @@ namespace lkb {
 		time += DeltaTime;
 		float fps = 1.0f / DeltaTime;
 
-		wchar_t str[50] = L"";
+		/*wchar_t str[50] = L"";
 		swprintf_s(str, 50, L"Time: %d", (int)fps);
 		int len = wcsnlen_s(str,50);
 
 
-		TextOut(hdc, 0, 0, str, len);
+		TextOut(hdc, 0, 0, str, len);*/
 	}
 }

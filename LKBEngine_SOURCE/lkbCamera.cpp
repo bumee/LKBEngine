@@ -1,12 +1,15 @@
 #include "lkbCamera.h"
 #include "lkbTransform.h"
 #include "lkbGameObject.h"
+#include "LKBApplication.h"
+
+extern lkb::Application application;
 
 namespace lkb {
 	Camera::Camera()
 		: Component(enums::eComponentType::Camera)
 		, mDistance(Vector2::Zero)
-		, mResolution(Vector2(1600.0f, 900.0f))
+		, mResolution(Vector2::Zero)
 		, mLookPosition(Vector2::Zero)
 		, mTarget(nullptr)
 	{
@@ -18,7 +21,8 @@ namespace lkb {
 	}
 	void Camera::Initialize()
 	{
-
+		mResolution.x = application.GetWidth();
+		mResolution.y = application.GetHeight();
 	}
 	void Camera::Update()
 	{

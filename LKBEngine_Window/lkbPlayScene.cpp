@@ -16,6 +16,7 @@
 namespace lkb {
 	PlayScene::PlayScene()
 		: bg(nullptr)
+		, p1(nullptr)
 	{
 	}
 	PlayScene::~PlayScene()
@@ -26,10 +27,10 @@ namespace lkb {
 	{
 
 		//메인 카메라
-		GameObject* camera = Object::Instantinate<GameObject>(enums::eLayerType::None);
+		GameObject* camera = Object::Instantinate<GameObject>(enums::eLayerType::None, Vector2(968.0f, 560.0f));
 		Camera* cameraComp = camera->AddComponent<Camera>();
 		renderer::mainCamera = cameraComp;
-		camera->AddComponent<PlayerScript>();
+		//camera->AddComponent<PlayerScript>();
 
 		//게임 오브젝트 만들기 전에 리소드들을 전부 로드해주면 좋다!
 
@@ -38,9 +39,19 @@ namespace lkb {
 		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 		
 
-		graphics::Texture* tx = Resources::Find<graphics::Texture>(L"BG");
+		graphics::Texture* tx = Resources::Find<graphics::Texture>(L"FirstCityBG");
 
 		sr->SetTexture(tx);
+
+		p1 = Object::Instantinate<Player>
+			(enums::eLayerType::Player);
+		SpriteRenderer* srforp1 = p1->AddComponent<SpriteRenderer>();
+		p1->AddComponent<PlayerScript>();
+
+		graphics::Texture* txforp1 = Resources::Find<graphics::Texture>(L"Soldier1");
+
+		srforp1->SetTexture(txforp1);
+		srforp1->SetSize(Vector2(5.0f, 5.0f));
 
 		Scene::Initialize();
 	}
@@ -59,8 +70,8 @@ namespace lkb {
 	void PlayScene::Render(HDC mHdc)
 	{
 		Scene::Render(mHdc);
-		wchar_t str[50] = L"Play Scene";
-		TextOut(mHdc, 0, 0, str, 10);
+		//wchar_t str[50] = L"Play Scene";
+		//TextOut(mHdc, 0, 0, str, 10);
 	}
 	void PlayScene::OnEnter()
 	{

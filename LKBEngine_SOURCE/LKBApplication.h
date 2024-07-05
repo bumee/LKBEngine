@@ -21,6 +21,8 @@ namespace lkb
 		void Render();
 
 		HDC GetHdc() { return mHdc; }
+		UINT GetHeight() { return mHeight; }
+		UINT GetWidth() { return mWidth; }
 
 	private:
 		void adjustWindowRect(HWND hWnd, UINT width, UINT height);

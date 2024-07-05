@@ -5,7 +5,8 @@
 
 namespace lkb {
 	void LoadResources() {
-		Resources::Load<graphics::Texture>(L"BG", L"C:\\Users\\hass-guest\\source\\repos\\LKBEngine\\LKBEngine_SOURCE\\CloudOcean.png");
+		Resources::Load<graphics::Texture>(L"FirstCityBG", L"..\\Resources\\img\\map\\City2\\Bright\\City2.png");
+		Resources::Load<graphics::Texture>(L"Soldier1", L"..\\Resources\\img\\Character\\Soldier_1\\Soldier_1.png");
 	}
 }
 

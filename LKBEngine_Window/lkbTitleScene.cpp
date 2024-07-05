@@ -36,8 +36,8 @@ namespace lkb {
 	void TitleScene::Render(HDC mHdc)
 	{
 		Scene::Render(mHdc);
-		wchar_t str[50] = L"Title Scene";
-		TextOut(mHdc, 0, 0, str, 11);
+		/*wchar_t str[50] = L"Title Scene";
+		TextOut(mHdc, 0, 0, str, 11);*/
 	}
 	void TitleScene::OnEnter()
 	{

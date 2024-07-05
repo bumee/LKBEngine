@@ -17,6 +17,7 @@ namespace lkb {
 
 	private:
 		class Player* bg;
+		class Player* p1;
 	};
 }
 
