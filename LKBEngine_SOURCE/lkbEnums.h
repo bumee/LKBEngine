@@ -6,6 +6,7 @@ namespace lkb::enums {
 	enum class eComponentType {
 		Transform,
 		SpriteRenderer,
+		Animator,
 		Script,
 		Camera,
 		End,
@@ -22,6 +23,7 @@ namespace lkb::enums {
 	{
 		Texture,
 		AudioClip,
+		Animation,
 		Prefab,
 		End,
 	};

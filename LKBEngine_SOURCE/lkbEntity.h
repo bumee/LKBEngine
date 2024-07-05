@@ -1,5 +1,6 @@
 #pragma once
 #include "Commoninclude.h"
+using namespace lkb::math;
 
 namespace lkb {
 	class Entity

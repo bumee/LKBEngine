@@ -16,6 +16,8 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\Edit_Window\Resource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Commoninclude.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbAnimation.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lkbAnimator.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LKBApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lkbCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lkbComponent.h" />
@@ -38,6 +40,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)lkbTransform.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbAnimation.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lkbAnimator.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lkbCamera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lkbComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lkbEntity.cpp" />
