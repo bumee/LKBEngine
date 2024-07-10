@@ -7,6 +7,7 @@ namespace lkb {
 	void LoadResources() {
 		Resources::Load<graphics::Texture>(L"FirstCityBG", L"..\\Resources\\img\\map\\City2\\Bright\\City2.png");
 		Resources::Load<graphics::Texture>(L"Soldier1", L"..\\Resources\\img\\Character\\Soldier_1\\Soldier_1.png");
+		Resources::Load<graphics::Texture>(L"Walking", L"..\\Resources\\img\\Character\\Soldier_1\\Walk.png");
 	}
 }
 

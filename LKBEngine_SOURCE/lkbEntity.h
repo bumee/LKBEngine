@@ -11,6 +11,7 @@ namespace lkb {
 
 		void SetName(const std::wstring& name) { mName = name; }
 		std::wstring& GetName() { return mName; }
+
 	private:
 		std::wstring mName;
 	};

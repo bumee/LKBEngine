@@ -16,7 +16,6 @@ namespace lkb {
 		void OnExit() override;// 씬에서 퇴장할 때 불러주는 함수
 
 	private:
-		class Player* bg;
 		class Player* p1;
 	};
 }

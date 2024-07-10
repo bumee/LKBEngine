@@ -3,7 +3,8 @@
 
 namespace lkb::enums {
 
-	enum class eComponentType {
+	enum class eComponentType
+	{
 		Transform,
 		SpriteRenderer,
 		Animator,
@@ -12,7 +13,8 @@ namespace lkb::enums {
 		End,
 	};
 
-	enum class eLayerType {
+	enum class eLayerType
+	{
 		None,
 		BackGround,
 		Player,

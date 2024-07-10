@@ -14,38 +14,36 @@ namespace lkb {
 			float duration;
 
 			Sprite()
-				: leftTop(Vector2::Zero) 
+				: leftTop(Vector2::Zero)
 				, size(Vector2::Zero)
 				, offset(Vector2::Zero)
 				, duration(0.0f)
-			{	
+			{
 
 			}
-			
 		};
+
 		Animation();
 		~Animation();
-		 
-		HRESULT Load(const std::wstring& path);
+
+		HRESULT Load(const std::wstring& path) override;
 
 		void Update();
-
 		void Render(HDC hdc);
-
-		// HRESULT는 bool과 같다.
 
 		void CreateAnimation(const std::wstring& name
 			, graphics::Texture* spriteSheet
 			, Vector2 leftTop
-			, Vector2 size
+			, Vector2 sizei
 			, Vector2 offset
-			, UINT spriteLength
+			, UINT spriteLegth
 			, float duration);
 
 		void Reset();
 
 		bool IsComplete() { return mbComplete; }
-		void SEtAnimator(class Animator* animator) { mAnimator = animator; }
+		void SetAnimator(class Animator* animator) { mAnimator = animator; }
+
 
 	private:
 		class Animator* mAnimator;

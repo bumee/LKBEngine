@@ -12,11 +12,10 @@
 #include "lkbPlayerScript.h"
 #include "lkbCamera.h"
 #include "lkbRenderer.h"
+#include "lkbAnimator.h"
 
 namespace lkb {
 	PlayScene::PlayScene()
-		: bg(nullptr)
-		, p1(nullptr)
 	{
 	}
 	PlayScene::~PlayScene()
@@ -30,29 +29,34 @@ namespace lkb {
 		GameObject* camera = Object::Instantinate<GameObject>(enums::eLayerType::None, Vector2(968.0f, 560.0f));
 		Camera* cameraComp = camera->AddComponent<Camera>();
 		renderer::mainCamera = cameraComp;
-		//camera->AddComponent<PlayerScript>();
 
 		//게임 오브젝트 만들기 전에 리소드들을 전부 로드해주면 좋다!
 
-		bg = Object::Instantinate<Player>
-			(enums::eLayerType::BackGround);
-		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
-		
-
-		graphics::Texture* tx = Resources::Find<graphics::Texture>(L"FirstCityBG");
-
-		sr->SetTexture(tx);
-
+		// 플레이어 가져오기
 		p1 = Object::Instantinate<Player>
 			(enums::eLayerType::Player);
-		SpriteRenderer* srforp1 = p1->AddComponent<SpriteRenderer>();
+		/*SpriteRenderer* srforp1 = p1->AddComponent<SpriteRenderer>();*/
 		p1->AddComponent<PlayerScript>();
 
-		graphics::Texture* txforp1 = Resources::Find<graphics::Texture>(L"Soldier1");
 
-		srforp1->SetTexture(txforp1);
-		srforp1->SetSize(Vector2(5.0f, 5.0f));
+		// 플레이어 애니메이션 가져오기
+		graphics::Texture* WalkingAnim = Resources::Find<graphics::Texture>(L"Walking");
+		Animator* animator = p1->AddComponent<Animator>();
+		animator->CreateAnimation(L"SoldierFrontMove", WalkingAnim, Vector2(0.0f, 0.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 7, 0.1f);
 
+		animator->PlayAnimation(L"SoldierFrontMove", true);
+
+		/*srforp1->SetTexture(WalkingAnim);*/
+
+		// 맵 텍스처 불러오기
+		GameObject* bg = Object::Instantinate<GameObject>
+			(enums::eLayerType::BackGround);
+		SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
+
+		graphics::Texture* tx = Resources::Find<graphics::Texture>(L"FirstCityBG");
+		bgSr->SetTexture(tx);
+
+		// 게임 오브젝트 생성후에 레이어와 게임오브젝트들의 init 함수를 호출
 		Scene::Initialize();
 	}
 	void PlayScene::Update()
