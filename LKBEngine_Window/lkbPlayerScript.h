@@ -5,6 +5,19 @@ namespace lkb {
 	class PlayerScript : public Script
 	{
 	public:
+
+		enum class eState {
+			idle,
+			attack,
+			dead,
+			hurt,
+			grenade,
+			shoot,
+			run,
+			reload,
+			walk
+		};
+
 		PlayerScript();
 		~PlayerScript();
 
@@ -12,7 +25,13 @@ namespace lkb {
 		void Update() override;
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
-	private:
 
+	private:
+		void idle();
+		void move();
+
+	private:
+		eState mState;
+		class Animator* mAnimator;
 	};
 }

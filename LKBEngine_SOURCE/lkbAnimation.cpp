@@ -56,24 +56,68 @@ namespace lkb {
         GameObject* gameObj = mAnimator->GetOwner();
         Transform* tr = gameObj->GetComponent<Transform>();
         Vector2 pos = tr->GetPosition();
+        float rot = tr->getRotation();
+        Vector2 scale = tr->getScale();
 
         if (renderer::mainCamera)
             pos = renderer::mainCamera->CalculatePosition(pos);
 
-        //BLENDFUNCTION func = {};
-        //func.BlendOp = AC_SRC_OVER;
-        //func.BlendFlags = 0;
-        //func.AlphaFormat = AC_SRC_ALPHA;
-        //func.SourceConstantAlpha = 255; // 0(transparent) ~ 255(Opaque)
+        BLENDFUNCTION func = {};
+        func.BlendOp = AC_SRC_OVER;
+        func.BlendFlags = 0;
+        func.AlphaFormat = AC_SRC_ALPHA;
+        func.SourceConstantAlpha = 255; // 0(transparent) ~ 255(Opaque)
 
         Sprite sprite = mAnimationSheet[mIndex];
-        HDC imgHdc = mTexture->GetHdc();
 
-       Gdiplus::Graphics graphics(hdc);
+        graphics::Texture::eTextureType type = mTexture->GetTextureType();
+        if (type == graphics::Texture::eTextureType::Bmp) {
+            BLENDFUNCTION func = {};
+            func.BlendOp = AC_SRC_OVER;
+            func.BlendFlags = 0;
+            func.AlphaFormat = AC_SRC_ALPHA;
+            func.SourceConstantAlpha = 255; // 0(transparent) ~ 255(Opaque)
+
+            HDC imgHdc = mTexture->GetHdc();
+
+            AlphaBlend(hdc, pos.x -(sprite.size.x/2.0f), pos.y - (sprite.size.y/2.0f), sprite.size.x * scale.x, sprite.size.y * scale.y, imgHdc, sprite.leftTop.x, sprite.leftTop.y, sprite.size.x, sprite.size.y, func);
+
+        }
+
+        else if (type == graphics::Texture::eTextureType::Png) {
+            // 내가 원하는 픽셀을 투명화 시킬 때
+            Gdiplus::ImageAttributes imgAtt = {};
+
+            // 투명화 시킬 픽셀의 색 범위
+            imgAtt.SetColorKey(Gdiplus::Color(225, 225, 225), Gdiplus::Color(255, 255, 255));
+
+            Gdiplus::Graphics gr(hdc);
+
+            gr.TranslateTransform(pos.x, pos.y);
+            gr.RotateTransform(rot);
+            gr.TranslateTransform(-pos.x, -pos.y);
+
+
+            gr.DrawImage(mTexture->GetImage(),
+                Gdiplus::Rect
+                (
+                    pos.x - (sprite.size.x / 2.0f), pos.y - (sprite.size.y / 2.0f),
+                    sprite.size.x * scale.x, sprite.size.y * scale.y
+                )
+                , sprite.leftTop.x
+                , sprite.leftTop.y
+                , sprite.size.x
+                , sprite.size.y
+                , Gdiplus::Unit::UnitPixel
+                , /*&imgAtt*/nullptr
+            );
+        }
+
+       /*Gdiplus::Graphics graphics(hdc);
 
        Gdiplus::Rect sourceRect(sprite.leftTop.x, sprite.leftTop.y, sprite.size.x, sprite.size.y);
 
-       graphics.DrawImage(mTexture->GetImage(), pos.x, pos.y, sprite.leftTop.x, sprite.leftTop.y, sprite.size.x, sprite.size.y, Gdiplus::Unit::UnitPixel);
+       graphics.DrawImage(mTexture->GetImage(), pos.x, pos.y, sprite.leftTop.x, sprite.leftTop.y, sprite.size.x, sprite.size.y, Gdiplus::Unit::UnitPixel);*/
         
     }
 
