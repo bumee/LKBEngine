@@ -21,7 +21,7 @@ namespace lkb {
 			, Vector2 size
 			, Vector2 offset
 			, UINT spriteLegth
-			, float duration);
+			, float duration, bool left = false);
 
 		Animation* FindAnimation(const std::wstring& name);
 		void PlayAnimation(const std::wstring& name, bool loop = true);

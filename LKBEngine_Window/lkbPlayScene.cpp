@@ -13,6 +13,8 @@
 #include "lkbCamera.h"
 #include "lkbRenderer.h"
 #include "lkbAnimator.h"
+#include "lkbMonsters.h"
+#include "lkbMonsterScript.h"
 
 namespace lkb {
 	PlayScene::PlayScene()
@@ -24,13 +26,23 @@ namespace lkb {
 	void PlayScene::Initialize()
 
 	{
+		//게임 오브젝트 만들기 전에 리소드들을 전부 로드해주면 좋다!
 
 		//메인 카메라
 		GameObject* camera = Object::Instantinate<GameObject>(enums::eLayerType::None, Vector2(968.0f, 560.0f));
 		Camera* cameraComp = camera->AddComponent<Camera>();
 		renderer::mainCamera = cameraComp;
 
-		//게임 오브젝트 만들기 전에 리소드들을 전부 로드해주면 좋다!
+		// 맵 텍스처 불러오기
+		GameObject* bg = Object::Instantinate<GameObject>
+			(enums::eLayerType::BackGround);
+		SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
+
+		graphics::Texture* tx = Resources::Find<graphics::Texture>(L"FirstCityBG");
+		bgSr->SetTexture(tx);
+
+
+
 
 		// 플레이어 가져오기
 		p1 = Object::Instantinate<Player>
@@ -39,7 +51,7 @@ namespace lkb {
 		p1->AddComponent<PlayerScript>();
 
 
-		// 플레이어 애니메이션 가져오기
+		// right 플레이어 애니메이션 가져오기
 		graphics::Texture* WalkingAnim = Resources::Find<graphics::Texture>(L"walk");
 		graphics::Texture* RunningAnim = Resources::Find<graphics::Texture>(L"run");
 		graphics::Texture* ReloadingAnim = Resources::Find<graphics::Texture>(L"reload");
@@ -50,6 +62,17 @@ namespace lkb {
 		graphics::Texture* GrenadeAnim = Resources::Find<graphics::Texture>(L"grenade");
 		graphics::Texture* HurtAnim = Resources::Find<graphics::Texture>(L"hurt");
 		graphics::Texture* ShootingAnim = Resources::Find<graphics::Texture>(L"shoot");
+
+		// left 플레이어 애니메이션 불러오기
+		graphics::Texture* WalkingAnim_left = Resources::Find<graphics::Texture>(L"walk_left");
+		graphics::Texture* RunningAnim_left = Resources::Find<graphics::Texture>(L"run_left");
+		graphics::Texture* ReloadingAnim_left = Resources::Find<graphics::Texture>(L"reload_left");
+		graphics::Texture* AttackingAnim_left = Resources::Find<graphics::Texture>(L"attack_left");
+		graphics::Texture* IdleAnim_left = Resources::Find<graphics::Texture>(L"idle_left");
+		graphics::Texture* DeadAnim_left = Resources::Find<graphics::Texture>(L"dead_left");
+		graphics::Texture* GrenadeAnim_left = Resources::Find<graphics::Texture>(L"grenade_left");
+		graphics::Texture* HurtAnim_left = Resources::Find<graphics::Texture>(L"hurt_left");
+		graphics::Texture* ShootingAnim_left = Resources::Find<graphics::Texture>(L"shoot_left");
 
 
 		Animator* animator = p1->AddComponent<Animator>();
@@ -64,7 +87,17 @@ namespace lkb {
 		animator->CreateAnimation(L"hurt", HurtAnim, Vector2(0.0f, 0.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 3, 0.1f);
 		animator->CreateAnimation(L"shoot", ShootingAnim, Vector2(0.0f, 0.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 4, 0.1f);
 
-		animator->PlayAnimation(L"idle", true);
+		animator->CreateAnimation(L"walk_left", WalkingAnim_left, Vector2(0.0f, 0.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 7, 0.1f, true);
+		animator->CreateAnimation(L"run_left", RunningAnim_left, Vector2(0.0f, 0.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 8, 0.1f, true);
+		animator->CreateAnimation(L"reload_left", ReloadingAnim_left, Vector2(0.0f, 0.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 13, 0.1f, true);
+		animator->CreateAnimation(L"attack_left", AttackingAnim_left, Vector2(0.0f, 0.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 3, 0.1f, true);
+		animator->CreateAnimation(L"idle_left", IdleAnim_left, Vector2(0.0f, 0.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 7, 0.1f, true);
+		animator->CreateAnimation(L"dead_left", DeadAnim_left, Vector2(0.0f, 0.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 4, 0.15f, true);
+		animator->CreateAnimation(L"grenade_left", GrenadeAnim_left, Vector2(0.0f, 0.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 9, 0.1f, true);
+		animator->CreateAnimation(L"hurt_left", HurtAnim_left, Vector2(0.0f, 0.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 3, 0.1f, true);
+		animator->CreateAnimation(L"shoot_left", ShootingAnim_left, Vector2(0.0f, 0.0f), Vector2(128.0f, 128.0f), Vector2::Zero, 4, 0.1f, true);
+
+		animator->PlayAnimation(L"attack_left", true);
 
 		p1->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
 
@@ -74,15 +107,14 @@ namespace lkb {
 		// 각도 조절
 		/*p1->GetComponent<Transform>()->setRotation(30.0f);*/
 
-		/*srforp1->SetTexture(WalkingAnim);*/
 
-		// 맵 텍스처 불러오기
-		GameObject* bg = Object::Instantinate<GameObject>
-			(enums::eLayerType::BackGround);
-		SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
+		// Enemy(Monster) 가져오기
+		Monsters* monster = Object::Instantinate<Monsters>
+			(enums::eLayerType::Enemy);
+		monster->AddComponent<MonsterScript>();
 
-		graphics::Texture* tx = Resources::Find<graphics::Texture>(L"FirstCityBG");
-		bgSr->SetTexture(tx);
+		Animator* Monsteranimator = monster->AddComponent<Animator>();
+
 
 		// 게임 오브젝트 생성후에 레이어와 게임오브젝트들의 init 함수를 호출
 		Scene::Initialize();

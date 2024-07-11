@@ -28,6 +28,12 @@
     <ClInclude Include="lkbPlayerScript.h">
       <Filter>Script</Filter>
     </ClInclude>
+    <ClInclude Include="lkbMonsters.h">
+      <Filter>Conetents</Filter>
+    </ClInclude>
+    <ClInclude Include="lkbMonsterScript.h">
+      <Filter>Script</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="lkbPlayScene.cpp">
@@ -40,6 +46,12 @@
       <Filter>Scenes</Filter>
     </ClCompile>
     <ClCompile Include="lkbPlayerScript.cpp">
+      <Filter>Script</Filter>
+    </ClCompile>
+    <ClCompile Include="lkbMonsters.cpp">
+      <Filter>Conetents</Filter>
+    </ClCompile>
+    <ClCompile Include="lkbMonsterScript.cpp">
       <Filter>Script</Filter>
     </ClCompile>
   </ItemGroup>

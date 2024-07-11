@@ -1,4 +1,4 @@
-#include "lkbPlayerScript.h"
+#include "lkbMonsterScript.h"
 #include "lkbInput.h"
 #include "lkbTransform.h"
 #include "lkbTime.h"
@@ -6,20 +6,20 @@
 #include "lkbAnimator.h"
 
 namespace lkb {
-	PlayerScript::PlayerScript()
+	MonsterScript::MonsterScript()
 		: mState(PlayerScript::eState::idle)
 		, mAnimator(nullptr)
 		, lookingRight(true)
 	{
 	}
-	PlayerScript::~PlayerScript()
+	MonsterScript::~PlayerScript()
 	{
 	}
-	void PlayerScript::Initialize()
+	void MonsterScript::Initialize()
 	{
-		
+
 	}
-	void PlayerScript::Update()
+	void MonsterScript::Update()
 	{
 		if (mAnimator == nullptr) {
 			mAnimator = GetOwner()->GetComponent<Animator>();
@@ -50,28 +50,28 @@ namespace lkb {
 			break;
 		}
 	}
-	void PlayerScript::LateUpdate()
+	void MonsterScript::LateUpdate()
 	{
 	}
-	void PlayerScript::Render(HDC hdc)
+	void MonsterScript::Render(HDC hdc)
 	{
 	}
-	void PlayerScript::idle()
+	void MonsterScript::idle()
 	{
 		if (Input::GetKey(eKeyCode::Right)) {
-			mState = PlayerScript::eState::walk;
+			mState = MonsterScript::eState::walk;
 			lookingRight = true;
 			mAnimator->PlayAnimation(L"walk");
 		}
 
 		else if (Input::GetKey(eKeyCode::Left)) {
-			mState = PlayerScript::eState::walk;
+			mState = MonsterScript::eState::walk;
 			lookingRight = false;
 			mAnimator->PlayAnimation(L"walk_left");
 		}
 
 		else if (Input::GetKey(eKeyCode::Up)) {
-			mState = PlayerScript::eState::walk;
+			mState = MonsterScript::eState::walk;
 			if (lookingRight) {
 				mAnimator->PlayAnimation(L"walk");
 			}
@@ -81,7 +81,7 @@ namespace lkb {
 		}
 
 		else if (Input::GetKey(eKeyCode::Down)) {
-			mState = PlayerScript::eState::walk;
+			mState = MonsterScript::eState::walk;
 			if (lookingRight) {
 				mAnimator->PlayAnimation(L"walk");
 			}
@@ -90,7 +90,7 @@ namespace lkb {
 			}
 		}
 	}
-	void PlayerScript::move()
+	void MonsterScript::move()
 	{
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
@@ -113,7 +113,7 @@ namespace lkb {
 		tr->SetPosition(pos);
 
 		if (Input::GetKeyUp(eKeyCode::Right) || Input::GetKeyUp(eKeyCode::Left) || Input::GetKeyUp(eKeyCode::Up) || Input::GetKeyUp(eKeyCode::Down)) {
-			mState = PlayerScript::eState::idle;
+			mState = MonsterScript::eState::idle;
 			if (lookingRight) {
 				mAnimator->PlayAnimation(L"idle");
 			}

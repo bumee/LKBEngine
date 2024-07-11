@@ -37,7 +37,7 @@ namespace lkb {
 			, Vector2 sizei
 			, Vector2 offset
 			, UINT spriteLegth
-			, float duration);
+			, float duration, bool left);
 
 		void Reset();
 

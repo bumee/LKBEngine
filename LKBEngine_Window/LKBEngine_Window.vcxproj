@@ -20,6 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lkbLoadScenes.h" />
+    <ClInclude Include="lkbMonsters.h" />
+    <ClInclude Include="lkbMonsterScript.h" />
     <ClInclude Include="lkbPlayer.h" />
     <ClInclude Include="lkbPlayerScript.h" />
     <ClInclude Include="lkbPlayScene.h" />
@@ -27,6 +29,8 @@
     <ClInclude Include="lkbLoadResources.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="lkbMonsters.cpp" />
+    <ClCompile Include="lkbMonsterScript.cpp" />
     <ClCompile Include="lkbPlayer.cpp" />
     <ClCompile Include="lkbPlayScene.cpp" />
     <ClCompile Include="lkbTitleScene.cpp" />

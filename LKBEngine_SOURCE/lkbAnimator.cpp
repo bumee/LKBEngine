@@ -45,7 +45,7 @@ namespace lkb {
 		, graphics::Texture* spriteSheet
 		, Vector2 leftTop
 		, Vector2 size, Vector2 offset
-		, UINT spriteLegth, float duration)
+		, UINT spriteLegth, float duration, bool left)
 	{
 		Animation* animation = nullptr;
 		animation = FindAnimation(name);
@@ -54,7 +54,7 @@ namespace lkb {
 
 		animation = new Animation();
 		animation->CreateAnimation(name, spriteSheet
-			, leftTop, size, offset, spriteLegth, duration);
+			, leftTop, size, offset, spriteLegth, duration, left);
 
 		animation->SetAnimator(this);
 

@@ -1,8 +1,8 @@
 #pragma once
-#include "..\\LKBEngine_SOURCE\lkbScript.h"
+#include "lkbScript.h"
 
 namespace lkb {
-	class PlayerScript : public Script
+	class MonsterScript : public Script
 	{
 	public:
 
@@ -18,8 +18,8 @@ namespace lkb {
 			walk
 		};
 
-		PlayerScript();
-		~PlayerScript();
+		MonsterScript();
+		~MonsterScript();
 
 		void Initialize() override;
 		void Update() override;
@@ -36,3 +36,4 @@ namespace lkb {
 		bool lookingRight;
 	};
 }
+

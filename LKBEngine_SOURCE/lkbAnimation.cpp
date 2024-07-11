@@ -122,7 +122,7 @@ namespace lkb {
     }
 
     void Animation::CreateAnimation(const std::wstring& name, graphics::Texture* spriteSheet
-        , Vector2 leftTop, Vector2 size, Vector2 offset, UINT spriteLegth, float duration)
+        , Vector2 leftTop, Vector2 size, Vector2 offset, UINT spriteLegth, float duration, bool left)
     {
         mTexture = spriteSheet;
         for (size_t i = 0; i < spriteLegth; i++)
@@ -133,6 +133,9 @@ namespace lkb {
             sprite.size = size;
             sprite.offset = offset;
             sprite.duration = duration;
+            if (left) {
+                sprite.leftTop.x = size.x * (spriteLegth - i - 1);
+            }
 
             mAnimationSheet.push_back(sprite);
         }

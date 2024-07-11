@@ -17,6 +17,7 @@ namespace lkb::enums {
 	{
 		None,
 		BackGround,
+		Enemy,
 		Player,
 		Max = 16,
 	};
