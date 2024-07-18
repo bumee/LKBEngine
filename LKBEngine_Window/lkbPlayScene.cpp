@@ -42,8 +42,6 @@ namespace lkb {
 		bgSr->SetTexture(tx);
 
 
-
-
 		// 플레이어 가져오기
 		p1 = Object::Instantinate<Player>
 			(enums::eLayerType::Player);

@@ -7,12 +7,12 @@
 
 namespace lkb {
 	MonsterScript::MonsterScript()
-		: mState(PlayerScript::eState::idle)
+		: mState(MonsterScript::eState::idle)
 		, mAnimator(nullptr)
 		, lookingRight(true)
 	{
 	}
-	MonsterScript::~PlayerScript()
+	MonsterScript::~MonsterScript()
 	{
 	}
 	void MonsterScript::Initialize()
@@ -26,24 +26,24 @@ namespace lkb {
 		}
 		switch (mState)
 		{
-		case lkb::PlayerScript::eState::idle:
+		case lkb::MonsterScript::eState::idle:
 			idle();
 			break;
-		case lkb::PlayerScript::eState::attack:
+		case lkb::MonsterScript::eState::attack:
 			break;
-		case lkb::PlayerScript::eState::dead:
+		case lkb::MonsterScript::eState::dead:
 			break;
-		case lkb::PlayerScript::eState::hurt:
+		case lkb::MonsterScript::eState::hurt:
 			break;
-		case lkb::PlayerScript::eState::grenade:
+		case lkb::MonsterScript::eState::grenade:
 			break;
-		case lkb::PlayerScript::eState::shoot:
+		case lkb::MonsterScript::eState::shoot:
 			break;
-		case lkb::PlayerScript::eState::run:
+		case lkb::MonsterScript::eState::run:
 			break;
-		case lkb::PlayerScript::eState::reload:
+		case lkb::MonsterScript::eState::reload:
 			break;
-		case lkb::PlayerScript::eState::walk:
+		case lkb::MonsterScript::eState::walk:
 			move();
 			break;
 		default:
